@@ -77,7 +77,8 @@ upload_blob() {
     --container-name "${AZURE_CONTAINER}" \
     --connection-string="${AZURE_CONNSTRING}" \
     --name="${blob}" \
-    --file="${file}"
+    --file="${file}" \
+    --overwrite true
 }
 
 download_blob() {
@@ -117,7 +118,7 @@ backup_database() {
 
 backup_all() {
   local timestamp
-  timestamp="$(date +%Y%m%d-%H%M)"
+  timestamp="$(date +%Y%m%d-%H%M%S)"
 
   parse_databases
   backup_globals "${timestamp}"

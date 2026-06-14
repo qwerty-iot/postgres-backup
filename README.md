@@ -21,9 +21,11 @@ Backup Layout
 Backups are uploaded under `BACKUP_PREFIX`:
 
 ```text
-<BACKUP_PREFIX>/globals/YYYYMMDD-HHMM.sql.gz
-<BACKUP_PREFIX>/databases/<database>/YYYYMMDD-HHMM.dump
+<BACKUP_PREFIX>/globals/YYYYMMDD-HHMMSS.sql.gz
+<BACKUP_PREFIX>/databases/<database>/YYYYMMDD-HHMMSS.dump
 ```
+
+Uploads use overwrite mode so a retried job with the same generated object name does not fail with `BlobAlreadyExists`.
 
 Configuration
 -------------
